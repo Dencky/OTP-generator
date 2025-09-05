@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
+#include <time.h>
 #include "hotp.h"
 
 void printUsage(char* name);
