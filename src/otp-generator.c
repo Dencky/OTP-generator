@@ -1,4 +1,4 @@
-#include "otp-generator.h"
+#include "../include/otp-generator.h"
 
 void printUsage(char* name){
     printf("Usage %s -k key -c counter -d digits\n", name);

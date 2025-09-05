@@ -1,4 +1,4 @@
-#include "hotp.h"
+#include "../include/hotp.h"
 
 uint32_t dynamicTruncation(uint8_t string[20]){
     size_t offset = string[19] & 0x0f;
