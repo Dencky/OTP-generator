@@ -1,5 +1,14 @@
 #include "hotp.h"
 
+uint32_t dynamicTruncation(uint8_t string[20]){
+    size_t offset = string[19] & 0x0f;
+    uint32_t p =    (((uint32_t) string[offset] & 0x7f) << 24)  |
+                    (((uint32_t) string[offset + 1])    << 16)  |
+                    (((uint32_t) string[offset + 2])    << 8)   |
+                    (((uint32_t) string[offset + 3]));
+    return p;
+}
+
 void hmac_sha1(const unsigned char* text, size_t textLen, unsigned char* key, size_t keyLen, uint8_t out[20]){
     
     unsigned char paddedKey[64];
