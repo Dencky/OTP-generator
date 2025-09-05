@@ -48,6 +48,19 @@ int main(int argc, char* argv[])
         printf("The number of digits should be between 6 and 10.\n");
         return EXIT_FAILURE;
     }
+
+    uint8_t out[20];
+    unsigned char counterBytes[8];
+    for (int i = 7; i >= 0; i--) {
+        counterBytes[i] = counter & 0xFF;
+        counter >>= 8;
+    }
+
+    hmac_sha1(counterBytes, 8, (unsigned char*) key, strlen(key), out);
+    uint32_t truncated = dynamicTruncation(out);
+
+    printf("%0*d", digits, truncated % (int)pow((double)10, (double)digits));
+    printf("\n");
     
     return EXIT_SUCCESS;
 }

@@ -3,6 +3,8 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <math.h>
+#include "hotp.h"
 
 void printUsage(char* name);
 
